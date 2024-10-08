@@ -4,6 +4,7 @@ class Restaurant < ApplicationRecord
   validates :category, presence: true
   belongs_to :user
   has_many :bookings
+  has_many :reviews, through: :bookings
 end
 
 # name"
