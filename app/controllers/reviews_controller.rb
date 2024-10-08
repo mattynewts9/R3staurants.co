@@ -13,7 +13,7 @@ class ReviewsController < ApplicationController
   if review.save
     redirect_to @restaurants, notice: "Review was successfully created"
   else
-    render :restaurants/:show
+    render :restaurants, :show
   end
 
   def edit
