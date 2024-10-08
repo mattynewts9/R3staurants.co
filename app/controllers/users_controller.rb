@@ -1,16 +1,16 @@
-class UserController < ApplicationController
+class UsersController < ApplicationController
   def index
     @users = User.all
   end
 
   def new
-    @users = User.all
+    @user = User.new  # Initialize a new User object
   end
 
   def create
-    @user = user.new(user_params)
+    @user = User.new(user_params)  # Corrected the model reference from 'user' to 'User'
     if @user.save
-      redirect_to users_path
+      redirect_to users_path, notice: "User was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
@@ -20,23 +20,28 @@ class UserController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def edit  # Added edit action to render the edit form
+    @user = User.find(params[:id])
+  end
+
   def update
-    @user = user.new(user_params)
-    if @user.save
-      redirect_to @user, notice:"User was successfully updated"
+    @user = User.find(params[:id])  # Find the user by ID
+    if @user.update(user_params)  # Use update instead of new
+      redirect_to @user, notice: "User was successfully updated."
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
+    @user = User.find(params[:id])  # Find the user by ID before trying to destroy it
     @user.destroy
-    redirect_to user_path(@user.list), notice:"User was successfully deleted"
+    redirect_to users_path, notice: "User was successfully deleted."  # Redirect to index after deletion
   end
 
   private
 
   def user_params
-  params.require(:user).permit(:first_name, :last_name)
+    params.require(:user).permit(:first_name, :last_name)
   end
 end
