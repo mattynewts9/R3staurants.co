@@ -1,6 +1,6 @@
 class Restaurant < ApplicationRecord
   validates :name, :description, presence: true
-  validates :email, :image_url, uniqueness: true
+  validates :image_url, uniqueness: true
   validates :category, presence: true
   belongs_to :user
   has_many :bookings
