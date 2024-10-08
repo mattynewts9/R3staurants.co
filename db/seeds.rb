@@ -1,9 +1,43 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+# db/seeds/reviews_seeder.rb
+
+require 'faker'
+
+# Clear existing records
+Review.destroy_all if Rails.env.development?  # Avoids issues in production
+
+booking_ids = Booking.pluck(:id)
+
+# Generate fake reviews
+def create_fake_reviews(booking_ids, count)
+  count.times do
+    Review.create(
+      rating: rand(1..5),                       # Random rating between 1 and 5
+      comments: Faker::Restaurant.review,       # Random comment from Faker
+      booking_id: booking_ids.sample             # Randomly associate with one of the bookings
+    )
+  end
+end
+
+# Generate 20 fake reviews
+create_fake_reviews(booking_ids, 20)
+
+# Optionally add three specific reviews manually
+Review.create(
+  rating: 5,
+  comments: "The food was absolutely amazing! Highly recommend the pasta!",
+  booking_id: booking_ids.sample
+)
+
+Review.create(
+  rating: 4,
+  comments: "Great atmosphere and friendly staff, but the service was a bit slow.",
+  booking_id: booking_ids.sample
+)
+
+Review.create(
+  rating: 3,
+  comments: "The food was decent, but I've had better experiences elsewhere.",
+  booking_id: booking_ids.sample
+)
+
+puts "Seeded #{Review.count} reviews."
