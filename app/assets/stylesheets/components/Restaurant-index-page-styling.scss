@@ -1,0 +1,40 @@
+.restaurant-cards {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border: 2px solid grey;
+}
+
+.restaurant-cards > img {
+  height: 300px;
+  width: 50%;
+  object-fit: cover;
+}
+
+.restaurant-cards h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.restaurant-cards p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+
+.restaurant-cards .card-trip-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.restaurant-cards .card-trip-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
+}
