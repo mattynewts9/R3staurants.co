@@ -1,5 +1,6 @@
 class Review < ApplicationRecord
   belongs_to :booking
-  validates :rating, inclusion: { in: 1..5 }
-  validates :comments, presence: true  # Ensure this line is present for validation
+
+  validates :comment, :rating, presence: true
+  validates :rating, numericality: { greater_than_or_equal_to: 1.0, less_than_or_equal_to: 5.0 }
 end
