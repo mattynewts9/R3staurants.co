@@ -1,1 +1,17 @@
-<%= @restaurants.all %>
+
+
+  <% @restaurants.each do |restaurant| %>
+  <div class="restaurant-cards">
+    <%= link_to restaurant_path(restaurant) do %>
+    <%= image_tag restaurant.image_url  %>
+      <% end %>
+    <div class="restaurant-info">
+      <div>
+        <h2><%= restaurant.name %></h2>
+        <p><%= restaurant.description %></p>
+      </div>
+      <h2 class="card-trip-pricing"><%= restaurant.location %></h2>
+     <%= image_tag "https://kitt.lewagon.com/placeholder/users/krokrob", class: "user avatar-bordered" %>
+      <% end %>
+    </div>
+</div>
