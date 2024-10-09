@@ -77,5 +77,7 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem 'faker' #gemsfile
-
+group :development, :test do
+  gem 'faker'
+end
 end
