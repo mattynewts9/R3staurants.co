@@ -7,14 +7,13 @@ class ReviewsController < ApplicationController
   def create
     @review = review.new(review_params)
     @review.user = current_user
-
+    if review.save
+      redirect_to @restaurants, notice: "Review was successfully created"
+    else
+      render :restaurants, :show
+    end
   end
 
-  if review.save
-    redirect_to @restaurants, notice: "Review was successfully created"
-  else
-    render :restaurants, :show
-  end
 
   def edit
     @review = user.new(user_params)
