@@ -13,33 +13,25 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "find a table", restaurants_path, class: "nav-link", style: "color: black;" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Messages", "#", class: "nav-link" %>
-          </li>
+          <p>
+            Welcome <%= current_user.first_name %>
+          </p>
           <li class="nav-item dropdown">
+        <% end %>
+
+        <li class="nav-item active">
+          <%= link_to "Find a table", restaurants_path, class: "nav-link primary" %>
+        </li>
+
+        <% if user_signed_in? %>
           <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", alt: "dropdown menu" %>
+            <%= image_tag current_user.image_url, class: "avatar", alt: "dropdown menu" %>
           </a>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-            </div>
-          </li>
+          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+            <%= link_to "My Bookings", bookings_path, class: "dropdown-item" %>
+            <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+          </div>
         <% else %>
-
-          <li class="nav-item active">
-          <%= link_to "Book a table", restaurants_path, class: "nav-link", style: "color: black;" %>
-          </li>
-
-          <li class="nav-item">
-          <%= link_to "Restaurants", restaurants_path, class: "nav-link", style: "color: black;" %>
-          </li>
-
-
           <li class="nav-item">
             <%= link_to "Login", new_user_session_path, class: "nav-link", style: "color: black;" %>
           </li>

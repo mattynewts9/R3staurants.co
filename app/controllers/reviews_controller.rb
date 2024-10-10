@@ -1,9 +1,5 @@
 class ReviewsController < ApplicationController
 
-  def new
-    @reviews = Review.all
-  end
-
   def create
     @review = review.new(review_params)
     @review.user = current_user
