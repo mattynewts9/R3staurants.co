@@ -21,5 +21,8 @@ class BookingsController < ApplicationController
 
   def booking_params
     params.require(:booking).permit(:date)
+
+  def set_restaurant
+    @restaurant = Restaurant.find(params[:restaurant_id])
   end
 end
