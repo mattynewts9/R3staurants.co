@@ -1,0 +1,9 @@
+<div>
+  <%= simple_form_for [@restaurant, @review] do |f| %>
+    <%= f.input :comment, label: false, placeholder: "Coment here..." %>
+    <%= f.input :rating, collection: 0..5, label: false %>
+    <%= f.submit 'Add review' %>
+  <% end %>
+</div>
+
+<%= link_to 'back', restaurant_path(@restaurant) %>
