@@ -1,9 +1,10 @@
+
 <div class="restaurants-container">
   <% @restaurants.each do |restaurant| %>
     <div class="restaurant-card" >
       <%= link_to restaurant_path(restaurant) do %>
-      <%= image_tag restaurant.image_url, class: "main-img" %>
-        <% end %>
+        <%= image_tag restaurant.image_url, class: "main-img" %>
+      <% end %>
       <div class="inner">
         <h2><%= restaurant.name %></h2>
         <h3><%= restaurant.location %></h3>
