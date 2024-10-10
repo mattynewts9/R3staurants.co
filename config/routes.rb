@@ -16,8 +16,10 @@ Rails.application.routes.draw do
   end
 
   resources :restaurants do
-    resources :bookings, :reviews
+    resources :bookings, only: [ :create, :new ]
+    resources :reviews
   end
+
 
   resources :categories, except: [ :edit, :update ]
 end

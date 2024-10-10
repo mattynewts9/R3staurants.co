@@ -1,0 +1,7 @@
+<%= simple_form_for [@restaurant, @booking] do |f| %>
+  <%= f.input :date, label: 'Please choose a date to book', error: 'You need to pick a date' %>
+  <%= f.input :guest, placeholder: '0', error: 'please select a number of guests'%>
+  <%# <%= link_to restaurant_bookings_path do %>
+  <%= f.button :submit, data: {turbo_method: :delete, turbo_confirm: "You have succesfully booked"}, placeholder: 'Confirm Booking', class: "btn btn-primary" %>
+    <%# s %>
+<% end %>
