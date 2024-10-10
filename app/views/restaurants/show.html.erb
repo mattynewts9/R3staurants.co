@@ -1,3 +1,53 @@
+
+<!-- Display Restaurant Information -->
+<h1><%= @restaurant.name %></h1>
+<p><strong>Location:</strong> <%= @restaurant.location %></p>
+<p><strong>Category:</strong> <%= @restaurant.category %></p>
+
+<!-- Book a Table Heading -->
+<h2>Book a Table</h2>
+
+<!-- Booking Form -->
+<%= form_with url: restaurant_bookings_path(@restaurant), method: :post, local: true do |form| %>
+  <!-- Booking Title Field -->
+  <div class="form-group">
+    <%= form.label :title, "Booking Title" %>
+    <%= form.text_field :title, class: "form-control", placeholder: "e.g., Family Dinner, Business Meeting" %>
+  </div>
+
+  <!-- Number of Guests Field -->
+  <div class="form-group">
+    <%= form.label :guests, "Number of Guests" %>
+    <%= form.number_field :guests, class: "form-control", min: 1 %>
+  </div>
+
+  <!-- Start Date Field -->
+  <div class="form-group">
+    <%= form.label :start_date, "Start Date and Time" %>
+    <%= form.datetime_field :start_date, class: "form-control" %>
+  </div>
+
+  <!-- End Date Field -->
+  <div class="form-group">
+    <%= form.label :end_date, "End Date and Time" %>
+    <%= form.datetime_field :end_date, class: "form-control" %>
+  </div>
+
+  <!-- Additional Comments Field -->
+  <div class="form-group">
+    <%= form.label :comments, "Additional Comments" %>
+    <%= form.text_area :comments, class: "form-control", placeholder: "Any special requests or notes..." %>
+  </div>
+
+  <!-- Submit Button -->
+  <div class="form-group">
+    <%= form.submit "Book Now", class: "btn btn-success" %>
+  </div>
+<% end %>
+
+<!-- Link to Go Back to Restaurant List -->
+<%= link_to 'Back to Restaurant List', restaurants_path, class: "btn btn-secondary" %>
+=======
 <div>
 <%= image_tag @restaurant.image_url %></p>
   <h1><%= @restaurant.name %></h1>
