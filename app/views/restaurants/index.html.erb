@@ -1,3 +1,9 @@
+<div class="banner" style='background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.8)), url("<%= asset_path('Turkey-cutting-picture.jpg') %>"); height: 500px; background-size: cover;'>
+  <div class="banner-content">
+    <h1>Find Your Feast, Book Your Table!</h1>
+    <p>Your Christmas table is just a click away!</p>
+  </div>
+</div>
 
 <div class="restaurants-container">
   <% @restaurants.each do |restaurant| %>
@@ -10,7 +16,9 @@
         <h3><%= restaurant.location %></h3>
 
         <div class="info">
-          <%= image_tag restaurant.user.image_url, class: "user avatar-bordered" %>
+          <% if restaurant.user.photo.attached? %>
+            <%= cl_image_tag restaurant.user.photo.key, class: "user avatar-bordered" %>
+          <% end %>
           <%= link_to "More details", restaurant_path(restaurant), class: "details-link" %>
         </div>
       </div>

@@ -4,32 +4,34 @@
   width: 100%;
   height: 100%;
   justify-content: space-around;
+  text-align: center;
 }
 
 .card-category a {
   color: white;
   text-decoration: none;
+  justify-content: end;
 }
-
 
 
 .restaurant-card {
   overflow: hidden;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  background-color: transparent;
+  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
   margin: 8px;
-  width: 500px;
+  width: 400px;
   padding: auto;
 }
 
 .restaurant-card .main-img {
-  width: 100%;
+  width: 75%;
   height: 200px;
   object-fit: cover;
+  border-radius: 8px;
 }
 
 .restaurant-card h2 {
-  font-size: 30px;
+  font-size: 15px;
   font-weight: bold;
   margin: 0;
 }
@@ -42,6 +44,7 @@
 
 .restaurant-card .inner {
   padding: 20px;
+  justify-content: flex-start;
 }
 
 .restaurant-card .info {
