@@ -1,24 +1,28 @@
 class BookingsController < ApplicationController
-  before_action :set_restaurant
+  skip_before_action :authenticate_user!, only: [:new]
+  before_action :set_restaurant, only: [:new, :create]
+
+  def new
+    @booking = Booking.new
+    # The restaurant is already set by the before_action
+  end
 
   def create
-    @booking = @restaurant.bookings.new(booking_params)
-    @booking.user = current_user
-
+    @booking = @restaurant.bookings.new(booking_params) # Assuming you have a relation set up
     if @booking.save
-      redirect_to @restaurant, notice: "Your booking has been successfully made!"
+      redirect_to booking_path(@booking), notice: 'Booking created successfully.'
     else
-      redirect_to @restaurant, alert: "There was an error making your booking."
+      render :new, status: :unprocessable_entity
     end
   end
 
   private
 
-  def set_restaurant
-    @restaurant = Restaurant.find(params[:restaurant_id])
+  def booking_params
+    params.require(:booking).permit(:date) # Include any additional booking fields as needed
   end
 
-  def booking_params
-    params.require(:booking).permit(:start_date, :end_date)
+  def set_restaurant
+    @restaurant = Restaurant.find(params[:restaurant_id])
   end
 end

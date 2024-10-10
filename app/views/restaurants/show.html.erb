@@ -1,11 +1,9 @@
-
-<!-- Display Restaurant Information -->
-<%= image_tag @restaurant.image_url %>
-<h1><%= @restaurant.name %></h1>
-<p><strong>Address:</strong> <%= @restaurant.location %></p>
-<p><strong>Category:</strong> <%= @restaurant.category %></p>
-<p><%= @restaurant.description %></p>
-
+<div class="mt-4">
+  <%= image_tag @restaurant.image_url, class: "img-fluid" %>
+  <h2 class="mt-3"><%= @restaurant.name %></h2>
+  <p><strong>Description:</strong> <%= @restaurant.description %></p>
+  <p><strong>Category:</strong> <%= @restaurant.category %></p>
+</div>
 
 <h2>Reviews</h2>
 <% @restaurant.reviews.each do |review| %>
@@ -13,5 +11,8 @@
   <p><%= '⭐️' * review.rating %></p>
 <% end %>
 
-<!-- Link to Go Back to Restaurant List -->
-<%= link_to 'Back to Restaurant List', restaurants_path, class: "btn btn-secondary" %>
+<!-- Button to Go to Booking Form -->
+<%= link_to 'Book Now', new_restaurant_booking_path(@restaurant), class: "btn btn-primary mt-3" %>
+
+<!-- Button to Show All Restaurants -->
+<%= link_to 'Back to All Restaurants', restaurants_path, class: "btn btn-secondary mt-3 ms-2" %>
