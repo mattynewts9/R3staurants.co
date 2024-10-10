@@ -1,3 +1,4 @@
+
 <!-- Display Restaurant Information -->
 <h1><%= @restaurant.name %></h1>
 <p><strong>Location:</strong> <%= @restaurant.location %></p>
@@ -46,3 +47,20 @@
 
 <!-- Link to Go Back to Restaurant List -->
 <%= link_to 'Back to Restaurant List', restaurants_path, class: "btn btn-secondary" %>
+=======
+<div>
+<%= image_tag @restaurant.image_url %></p>
+  <h1><%= @restaurant.name %></h1>
+  <p><strong>Address:</strong> <%= @restaurant.description %></p>
+  <p><strong>Phone Number:</strong> <%= @restaurant.location %></p>
+  <p><strong>Category:</strong> <%= @restaurant.category %></p>
+</div>
+
+<%= link_to 'Back to Restaurant List', restaurants_path %>
+
+<%#
+<%# t.string "name"
+    <%# t.string "description"
+    <%# .string "location"
+    <%# t.string "image_url"
+    <%# t.string "category" %>
