@@ -4,6 +4,7 @@ Booking.destroy_all
 Restaurant.destroy_all
 User.destroy_all
 
+
 # Seed users
 puts "Creating users..."
 users = User.create!([
@@ -18,7 +19,7 @@ restaurants = Restaurant.create!([
     name: "The Gourmet Kitchen",
     description: "A fine dining restaurant with a seasonal menu.",
     location: "123 Fancy St, London",
-    image_url: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/29/57/af/bc/just-2-mins-from-the.jpg?w=1200&h=-1&s=1",
+    image_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-kvE0rDacIzqqZ_AUp6BWLhryZYb8sLJ_ZQ&s",
     category: "Fine Dining",
     user: users.first
   },
@@ -26,7 +27,7 @@ restaurants = Restaurant.create!([
     name: "Cristie's Famous Pizza & Pasta",
     description: "Italian cuisine featuring handmade pasta and traditional dishes.",
     location: "456 Italian Rd, London",
-    image_url: "https://www.iberkshires.com/images/feature/1637551465.jpg",
+    image_url: "https://www.veganfoodandliving.com/wp-content/uploads/2018/08/stable-new.jpg",
     category: "Italian",
     user: users.first
   },
@@ -34,7 +35,7 @@ restaurants = Restaurant.create!([
     name: "Sushi Haven",
     description: "A modern sushi bar with fresh and innovative dishes.",
     location: "789 Sushi Lane, Tokyo",
-    image_url: "https://kosher-traveling.co.il/wp-content/uploads/sites/2/2024/03/London-Food-sushi-haven-2.jpeg",
+    image_url: "https://media-cdn.tripadvisor.com/media/photo-s/17/cb/c6/90/udvalg-af-sushi.jpg",
     category: "Japanese",
     user: users.first
   },
@@ -42,7 +43,7 @@ restaurants = Restaurant.create!([
     name: "Taco Fiesta",
     description: "A vibrant Mexican restaurant serving authentic tacos and margaritas.",
     location: "101 Taco Blvd, Mexico City",
-    image_url: "https://media-cdn.tripadvisor.com/media/photo-s/1b/fe/17/7e/taco-fiesta.jpg",
+    image_url: "https://assets.biztimes.com/uploads/2019/05/121318-Tacos.jpg",
     category: "Mexican",
     user: users.first
   }
@@ -51,11 +52,8 @@ restaurants = Restaurant.create!([
 # Create bookings
 puts "Creating bookings..."
 50.times do
-  start_date = Faker::Time.between(from: DateTime.now, to: 1.year.from_now)
-  end_date = start_date + rand(1..14).days
   Booking.create!(
-    start_date: start_date,
-    end_date: end_date,
+    date: Date.today,
     user: users.sample,
     restaurant: restaurants.sample
   )

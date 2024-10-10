@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :restaurants
   has_many :bookings
   has_many :reviews, through: :booking
+  has_one_attached :photo
 
-  validates :first_name, :last_name, :image_url, presence: true
+  validates :first_name, :last_name, presence: true
 end
