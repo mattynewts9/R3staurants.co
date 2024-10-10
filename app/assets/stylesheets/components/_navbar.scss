@@ -22,3 +22,25 @@
 .nav-link {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
+.nav-link.primary {
+  padding: 5px;
+  background-color: #8A9B68;
+  border-radius: 5px;
+  color: white;
+
+  &:hover {
+    opacity: 75%;
+  }
+
+  transition: opacity .2s ease;
+}
+
+.navbar-nav {
+  align-items: center;
+  column-gap: 10px;
+
+  p {
+    margin: 0;
+  }
+}
