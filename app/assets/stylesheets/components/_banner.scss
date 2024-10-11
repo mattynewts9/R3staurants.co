@@ -1,11 +1,55 @@
 .banner {
   text-align: center;
   justify-content: center;
-  color: white;
-  font-weight: 100;
   background-image: rgba(0,0,0, 0.8);
+  background-position: center;
+  padding: 150px 0;
+  margin-bottom: 20px;
 }
 
-.banner-content {
+.banner-content h1 {
+  font-weight: bold;
+  font-family: "Pacifico", cursive;
+  font-style: normal;
+  color: white;
+}
 
+.banner-content p {
+  margin-top: 15px;
+  font-family: "Pacifico", cursive;
+  font-style: normal;
+  color: white;
+}
+
+.banner-container {
+  width: 100px;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner-buttons {
+  height: 50px;
+  font-size: 50px;
+  margin-top: 10px;
+  padding: 12px;
+  background-color: white;
+  width: 200px;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  border-radius: 30px;
+  margin-top: 25px;
+  justify-content: center;
+}
+
+.banner-buttons h1 {
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.banner-buttons:hover {
+  background-color:#8A9B68;
+  color: white;
+  transition: ease .3s;
+  cursor: pointer;
 }
