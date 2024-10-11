@@ -1,34 +1,34 @@
-<div class="banner" style='background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.8)), url("<%= asset_path('Turkey-cutting-picture.jpg') %>"); height: 500px; background-size: cover;'>
+<div class="restaurants-banner" style='background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.8)), url("<%= asset_path('Turkey-cutting-picture.jpg') %>"); height: 500px; background-size: cover;'>
   <div class="banner-content">
     <h1>Find Your Feast, Book Your Table!</h1>
     <p>Your Christmas table is just a click away!</p>
   </div>
-    <div class="banner-buttons">
-      <div class="button-1">
-        <h1>Book Now!</h1>
-       </div>
-    </div>
 
-    <div class="banner-buttons">
-      <div class="button-1">
-        <h1>Find Out More</h1>
-      </div>
-    </div>
+  <a href="#restaurants" class="font-legible banner-button">Book Now!</a>
+  <a href="#" class="font-legible banner-button">Find Out More</a>
 </div>
 
-<div class="restaurants-container">
+<div id="restaurants" class="restaurants-container">
   <% @restaurants.each do |restaurant| %>
     <div class="restaurant-card" >
       <%= link_to restaurant_path(restaurant) do %>
         <%= image_tag restaurant.image_url, class: "main-img" %>
       <% end %>
-        <h2><%= restaurant.name %></h2>
+        <div class="rating-container">
+          <h2><%= restaurant.name %></h2>
+          <p><span class="fa fa-star checked"></span>
+             <span class="fa fa-star checked"></span>
+             <span class="fa fa-star checked"></span>
+             <span class="fa fa-star"></span>
+             <span class="fa fa-star"></span>
+          </p>
+        </div>
         <h3><%= restaurant.location %></h3>
         <div class="info">
           <% if restaurant.user.photo.attached? %>
             <%= cl_image_tag restaurant.user.photo.key, class: "user avatar-bordered" %>
           <% end %>
-          <%= link_to "Check us out!", restaurant_path(restaurant), class: "details-link" %>
+          <%= link_to "Check us out!", restaurant_path(restaurant), class: "details-link font-cursive" %>
         </div>
     </div>
     <% end %>

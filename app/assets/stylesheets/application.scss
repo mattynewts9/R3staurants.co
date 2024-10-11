@@ -10,3 +10,18 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1, h2, h3, h4, h5, .font-cursive {
+  font-family: "Pacifico", cursive;
+  font-style: normal;
+}
+
+.font-legible, p, a, button {
+  font-family: "Nunito", "Helvetica", "sans-serif";
+  font-weight: 500;
+}
