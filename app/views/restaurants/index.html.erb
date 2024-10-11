@@ -6,7 +6,7 @@
     <div class="banner-buttons">
       <div class="button-1">
         <h1>Book Now!</h1>
-      </div>
+       </div>
     </div>
 
     <div class="banner-buttons">
@@ -22,17 +22,14 @@
       <%= link_to restaurant_path(restaurant) do %>
         <%= image_tag restaurant.image_url, class: "main-img" %>
       <% end %>
-      <div class="inner">
         <h2><%= restaurant.name %></h2>
         <h3><%= restaurant.location %></h3>
-
         <div class="info">
           <% if restaurant.user.photo.attached? %>
             <%= cl_image_tag restaurant.user.photo.key, class: "user avatar-bordered" %>
           <% end %>
-          <%= link_to "More details", restaurant_path(restaurant), class: "details-link" %>
+          <%= link_to "Check us out!", restaurant_path(restaurant), class: "details-link" %>
         </div>
-      </div>
     </div>
-  <% end %>
+    <% end %>
 </div>
