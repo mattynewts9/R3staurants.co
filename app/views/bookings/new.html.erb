@@ -1,7 +1,26 @@
-<%= simple_form_for [@restaurant, @booking] do |f| %>
-  <%= f.input :date, label: 'Please choose a date to book', error: 'You need to pick a date' %>
-  <%= f.input :guest, placeholder: '0', error: 'please select a number of guests'%>
-  <%# <%= link_to restaurant_bookings_path do %>
-  <%= f.button :submit, 'Confirm Booking', class: "btn btn-primary" %>
-    <%# s %>
-<% end %>
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Book a Table</h2>
+
+  <%= simple_form_for [@restaurant, @booking] do |f| %>
+    <div class="form-group">
+      <%= f.input :date,
+          label: 'Please choose a date to book',
+          error: 'You need to pick a date',
+          input_html: { class: 'form-control', placeholder: 'Select a date' } %>
+    </div>
+
+    <div class="form-group">
+      <%= f.input :guest,
+          label: 'Number of Guests',
+          placeholder: '0',
+          error: 'Please select a number of guests',
+          input_html: { class: 'form-control', type: 'number', min: 1 } %>
+    </div>
+
+    <div class="text-center">
+      <%= f.button :submit, 'Confirm Booking', class: "btn btn-success btn-lg" %>
+      <div class="text-center mt-4">
+  <%= link_to 'Back to Restaurants', restaurants_path, class: "btn btn-secondary btn-lg" %>
+    </div>
+  <% end %>
+</div>
