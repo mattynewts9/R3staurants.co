@@ -1,0 +1,23 @@
+<footer class="footer">
+  <div class="container text-center">
+    <div class="footer-content">
+      <ul class="list-inline footer-links">
+        <li class="list-inline-item"><a href="#">Home</a></li>
+        <li class="list-inline-item"><a href="#">Menu</a></li>
+        <!-- Using Rails' link_to helper for the Reservations link -->
+        <li class="list-inline-item"><%= link_to 'Reservations', restaurants_path %></li>
+        <li class="list-inline-item"><a href="#">Contact Us</a></li>
+      </ul>
+
+      <p class="footer-social">
+        <a href="#"><i class="fa fa-facebook"></i></a>
+        <a href="#"><i class="fa fa-instagram"></i></a>
+        <a href="#"><i class="fa fa-twitter"></i></a>
+      </p>
+
+      <p class="footer-copyright">
+        &copy; <%= Date.today.year %> R3staurantsCo. All rights reserved.
+      </p>
+    </div>
+  </div>
+</footer>

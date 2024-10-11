@@ -1,0 +1,43 @@
+.footer {
+  background-color: #f8f9fa;
+  padding: 40px 0;
+  font-size: 16px;
+  color: #333;
+
+  .footer-content {
+    max-width: 900px;
+    margin: 0 auto;
+
+    .footer-links {
+      margin-bottom: 20px;
+
+      a {
+        color: #333;
+        text-decoration: none;
+        padding: 0 10px;
+        font-weight: 500;
+        &:hover {
+          color: #ff5a5f;
+        }
+      }
+    }
+
+    .footer-social {
+      margin-bottom: 20px;
+
+      a {
+        color: #333;
+        margin: 0 10px;
+        font-size: 20px;
+        &:hover {
+          color: #ff5a5f;
+        }
+      }
+    }
+
+    .footer-copyright {
+      font-size: 14px;
+      color: #777;
+    }
+  }
+}
