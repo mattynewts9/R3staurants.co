@@ -1,0 +1,6 @@
+<h2>Booking for: <%= @booking.restaurant.name %></h2>
+<p><%= @booking.date %></p>
+
+<%= link_to 'Back to all bookings',  bookings_path, class: 'btn btn-secondary' %>
+
+<%= link_to 'Cancel Booking',  booking_path(@booking), class: 'btn btn-danger', data: { turbo_method: :delete, turbo_confirm: 'Cancel this booking?'} %>

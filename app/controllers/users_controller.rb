@@ -3,12 +3,16 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  def shared
+    @user = current_user
+  end
+
   def new
-    @user = User.new  # Initialize a new User object
+    @user = User.new # Initialize a new User object
   end
 
   def create
-    @user = User.new(user_params)  # Corrected the model reference from 'user' to 'User'
+    @user = User.new(user_params) # Corrected the model reference from 'user' to 'User'
     if @user.save
       redirect_to users_path, notice: "User was successfully created."
     else
@@ -42,6 +46,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name)
+    params.require(:user).permit(:first_name, :last_name, :photo)
   end
 end

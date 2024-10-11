@@ -20,6 +20,8 @@ Rails.application.routes.draw do
     resources :reviews
   end
 
+  resources :bookings, only: [:show, :destroy, :index]
+
 
   resources :categories, except: [ :edit, :update ]
 end
