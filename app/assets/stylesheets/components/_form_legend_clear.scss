@@ -8,3 +8,67 @@
 legend ~ div.form-check:first-of-type {
   clear: left;
 }
+
+/* General Container Styles */
+.container {
+  background-color: #f9f9f9; /* Light background for contrast */
+  border-radius: 8px; /* Rounded corners */
+  padding: 30px; /* Padding inside the container */
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Heading Styles */
+h2 {
+  color: #333; /* Dark text color for readability */
+  font-weight: 700; /* Bold font for emphasis */
+}
+
+/* Form Group Styles */
+.form-group {
+  margin-bottom: 20px; /* Space between form fields */
+}
+
+/* Input Styles */
+.form-control {
+  border: 1px solid #ccc; /* Light gray border */
+  border-radius: 5px; /* Rounded input fields */
+  transition: border-color 0.3s; /* Smooth transition for border color */
+}
+
+/* Input Focus Styles */
+.form-control:focus {
+  border-color: #5cb85c; /* Green border on focus */
+  box-shadow: 0 0 5px rgba(92, 184, 92, 0.5); /* Subtle glow effect */
+}
+
+/* Button Styles */
+.btn-success {
+  background-color: #5cb85c; /* Bootstrap green */
+  color: #fff; /* White text color */
+  border: none; /* Remove border */
+  border-radius: 5px; /* Rounded corners for buttons */
+  padding: 10px 20px; /* Padding for buttons */
+  transition: background-color 0.3s;
+}
+
+.btn-success:hover {
+  background-color: #4cae4c;
+}
+
+/* Responsive Design */
+@media (max-width: 576px) {
+  .container {
+      padding: 20px;
+  }
+}
+.btn-red {
+  background-color: red;
+  border-color: red;
+  color: white;
+}
+
+.btn-red:hover {
+  background-color: darkred;
+  border-color: darkred;
+  color: white;
+}
